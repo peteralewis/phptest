@@ -16,7 +16,7 @@ if (is_readable(ROOT_PATH.'/.APP_ENV')) {
     define('APP_ENV', trim(file_get_contents(ROOT_PATH.'/.APP_ENV')));
 }
 else {
-    define('APP_ENV', getenv('APP_ENV') ?: 'testing');
+    define('APP_ENV', getenv('APP_ENV') ?: 'development');
 }
 
 // Autoloader (requires composer install)
