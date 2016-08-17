@@ -18,7 +18,17 @@ class Article extends AbstractController
             throw new \Exception("Article not found", 404);
         }
 
+        $this->checkSlug($article);
         $this->tpl->article = $article;
         echo $this->tpl->render('article/view.phtml');
+    }
+
+    private function checkSlug($articleDetails)
+    {
+        $slug = $this->getRoutedParam('slug');
+        if ($slug !== $articleDetails['slug']) {
+            header('Location:'. $articleDetails['id']."-".$articleDetails['slug']);
+            die();
+        }
     }
 }
