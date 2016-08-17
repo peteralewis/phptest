@@ -16,7 +16,9 @@
                 <a class="navbar-brand" href="/"><em>Fizz</em><strong>Buzz</strong></a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/section/tasks">Tasks</a></li>
+                <?php foreach ($this->mainmenu as $article): ?>
+                    <li><a href="/section/<?= $article['slug'] ?>"><?= $article['title'] ?></a></li>
+                <?php endforeach; ?>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/phpinfo">phpinfo</a></li>
